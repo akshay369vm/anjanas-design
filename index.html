@@ -2,86 +2,91 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Anjana's Design and Boutique</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Pattambi Button House</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      .fade { animation: fadeInOut 6s infinite; position: absolute; width: 100%; height: 100%; }
+      @keyframes fadeInOut {
+        0%, 100% { opacity: 0; }
+        25%, 75% { opacity: 1; }
+      }
+    </style>
   </head>
   <body class="bg-white text-gray-800 font-sans">
+
     <!-- Header -->
     <header class="bg-pink-200 shadow p-6 text-center">
-      <h1 class="text-3xl md:text-4xl font-bold tracking-wide text-pink-900">
-        Pattambi Button House
-      </h1>
+      <h1 class="text-4xl font-bold text-pink-900">Pattambi Button House</h1>
       <p class="text-md text-pink-800 mt-2">Custom Tailoring & Print Work</p>
     </header>
 
-    <!-- Gallery Section -->
-    <section class="p-6 max-w-6xl mx-auto">
-        <h2 class="text-2xl font-semibold text-center mb-6">Our Designs</h2>
-        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-          <div onclick="openModal('assets/designs/1.jpeg')" class="cursor-pointer overflow-hidden rounded-xl shadow hover:shadow-lg transition">
-            <img src="assets/designs/1.jpeg" alt="Kurti Design 1" class="w-full h-64 object-cover" />
-          </div>
-          <div onclick="openModal('assets/designs/2.jpeg')" class="cursor-pointer overflow-hidden rounded-xl shadow hover:shadow-lg transition">
-            <img src="assets/designs/2.jpeg" alt="Shirt Design 1" class="w-full h-64 object-cover" />
-          </div>
-          <div onclick="openModal('assets/designs/3.jpeg')" class="cursor-pointer overflow-hidden rounded-xl shadow hover:shadow-lg transition">
-            <img src="assets/designs/3.jpeg" alt="Shirt Design 1" class="w-full h-64 object-cover" />
-          </div>
-          <div onclick="openModal('assets/designs/4.jpeg')" class="cursor-pointer overflow-hidden rounded-xl shadow hover:shadow-lg transition">
-            <img src="assets/designs/4.jpeg" alt="Shirt Design 1" class="w-full h-64 object-cover" />
-          </div>
-          <div onclick="openModal('assets/designs/5.jpeg')" class="cursor-pointer overflow-hidden rounded-xl shadow hover:shadow-lg transition">
-            <img src="assets/designs/5.jpeg" alt="Shirt Design 1" class="w-full h-64 object-cover" />
-          </div>
-          <!-- Add more as needed -->
+    <!-- Hero Section (Moving Images) -->
+    <section class="relative w-full h-[300px] sm:h-[400px] md:h-[500px] overflow-hidden">
+      <div id="slide1" class="fade"><img src="assets/hero/1.jpg" class="w-full h-full object-cover" /></div>
+      <div id="slide2" class="fade"><img src="assets/hero/2.jpg" class="w-full h-full object-cover" /></div>
+      <div id="slide3" class="fade"><img src="assets/hero/3.webp" class="w-full h-full object-cover" /></div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="p-8 max-w-6xl mx-auto">
+      <h2 class="text-3xl font-bold text-center mb-10 text-pink-800">Our Services</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 text-center">
+        <!-- Button Fitting -->
+        <div class="border rounded-lg shadow hover:shadow-lg p-4">
+          <img src="assets/services/fitting.jpg" alt="Button Fitting" class="w-full h-48 object-cover rounded mb-4">
+          <h3 class="text-xl font-semibold text-pink-700 mb-2">Button Fitting</h3>
+          <p class="text-sm">Expert button stitching and re-fitting to ensure your outfits look sharp and secure.</p>
         </div>
-      </section>
+        <!-- Custom Tailoring -->
+        <div class="border rounded-lg shadow hover:shadow-lg p-4">
+          <img src="assets/services/tailoring.jpg" alt="Custom Tailoring" class="w-full h-48 object-cover rounded mb-4">
+          <h3 class="text-xl font-semibold text-pink-700 mb-2">Customised Tailoring</h3>
+          <p class="text-sm">Made-to-measure tailoring services for shirts, kurtis, and designer pieces.</p>
+        </div>
+        <!-- Custom Printing -->
+        <div class="border rounded-lg shadow hover:shadow-lg p-4">
+          <img src="assets/services/printing.jpg" alt="Custom Printing" class="w-full h-48 object-cover rounded mb-4">
+          <h3 class="text-xl font-semibold text-pink-700 mb-2">Custom Printing</h3>
+          <p class="text-sm">Get creative prints on shirts, t-shirts, and kurtis that reflect your personal style.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Collection Buttons -->
+    <section class="p-6 max-w-4xl mx-auto text-center">
+      <h2 class="text-xl font-semibold mb-4">Choose a Collection</h2>
+      <div class="flex justify-center gap-4 flex-wrap">
+        <a href="vishu.html" class="bg-pink-500 hover:bg-pink-600 text-white px-4 py-2 rounded-xl transition">🌸 Vishu Collection</a>
+        <a href="onam.html" class="bg-yellow-500 hover:bg-yellow-600 text-white px-4 py-2 rounded-xl transition">🌼 Onam Collection</a>
+      </div>
+    </section>
 
     <!-- Contact Section -->
     <section class="bg-pink-100 p-6 mt-10">
-      <h2 class="text-2xl font-semibold text-center mb-4">Contact Us</h2>
-      <div class="text-center space-y-4">
-        <p>For orders, tailoring, or any inquiries:</p>
-        <div class="flex justify-center gap-6 text-pink-800 font-medium">
-          <a
-            href="https://wa.me/9778022978"
-            class="hover:underline"
-            target="_blank"
-            >📱 WhatsApp</a
-          >
-          <a href="mailto:youremail@example.com" class="hover:underline">📧 Email</a>
-          <a href="tel:+919778022978" class="hover:underline">📞 Phone</a>
-        </div>
+      <div class="max-w-3xl mx-auto text-center">
+        <h2 class="text-2xl font-bold mb-4">Contact Us</h2>
+        <p class="text-lg mb-2">📞 <a href="tel:+919778022978" class="text-blue-600 hover:underline">+91 97780 22978</a></p>
+        <p class="text-lg mb-2">✉️ <a href="mailto:anjana@example.com" class="text-blue-600 hover:underline">anjana@example.com</a></p>
+        <p class="text-lg">💬 <a href="https://wa.me/919778022978" class="text-green-600 hover:underline" target="_blank">+91 97780 22978</a></p>
       </div>
     </section>
 
     <!-- Footer -->
     <footer class="text-center text-sm text-gray-500 mt-10 p-4">
-      &copy; 2025 Anjana's Design and Boutique. All rights reserved.
+      &copy; 2025 Pattambi Button House
     </footer>
-    <div id="lightboxModal" class="fixed inset-0 z-50 hidden bg-black bg-opacity-80 flex items-center justify-center">
-        <div class="relative">
-          <span onclick="closeModal()" class="absolute -top-6 -right-6 text-white text-3xl cursor-pointer">×</span>
-          <img id="modalImage" src="" class="max-w-[90vw] max-h-[90vh] rounded shadow-lg" />
-        </div>
-      </div>
-      <script>
-        function openModal(src) {
-          document.getElementById("modalImage").src = src;
-          document.getElementById("lightboxModal").classList.remove("hidden");
+
+    <!-- Slideshow Script -->
+    <script>
+      let current = 1;
+      const total = 3;
+      setInterval(() => {
+        for (let i = 1; i <= total; i++) {
+          document.getElementById("slide" + i).style.opacity = (i === current) ? "1" : "0";
         }
-      
-        function closeModal() {
-          document.getElementById("lightboxModal").classList.add("hidden");
-        }
-      
-        // Close modal if clicked outside the image
-        document.getElementById("lightboxModal").addEventListener("click", function (e) {
-          if (e.target.id === "lightboxModal") {
-            closeModal();
-          }
-        });
-      </script>
+        current = current < total ? current + 1 : 1;
+      }, 4000);
+    </script>
   </body>
 </html>
