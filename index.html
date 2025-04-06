@@ -19,19 +19,19 @@
     <section class="p-6 max-w-6xl mx-auto">
         <h2 class="text-2xl font-semibold text-center mb-6">Our Designs</h2>
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-          <div onclick="openModal('assets/designs/kurti1.jpg')" class="cursor-pointer overflow-hidden rounded-xl shadow hover:shadow-lg transition">
+          <div onclick="openModal('assets/designs/1.jpeg')" class="cursor-pointer overflow-hidden rounded-xl shadow hover:shadow-lg transition">
             <img src="assets/designs/1.jpeg" alt="Kurti Design 1" class="w-full h-64 object-cover" />
           </div>
-          <div onclick="openModal('assets/designs/shirt1.jpg')" class="cursor-pointer overflow-hidden rounded-xl shadow hover:shadow-lg transition">
+          <div onclick="openModal('assets/designs/2.jpeg')" class="cursor-pointer overflow-hidden rounded-xl shadow hover:shadow-lg transition">
             <img src="assets/designs/2.jpeg" alt="Shirt Design 1" class="w-full h-64 object-cover" />
           </div>
-          <div onclick="openModal('assets/designs/shirt1.jpg')" class="cursor-pointer overflow-hidden rounded-xl shadow hover:shadow-lg transition">
+          <div onclick="openModal('assets/designs/3.jpeg')" class="cursor-pointer overflow-hidden rounded-xl shadow hover:shadow-lg transition">
             <img src="assets/designs/3.jpeg" alt="Shirt Design 1" class="w-full h-64 object-cover" />
           </div>
-          <div onclick="openModal('assets/designs/shirt1.jpg')" class="cursor-pointer overflow-hidden rounded-xl shadow hover:shadow-lg transition">
+          <div onclick="openModal('assets/designs/4.jpeg')" class="cursor-pointer overflow-hidden rounded-xl shadow hover:shadow-lg transition">
             <img src="assets/designs/4.jpeg" alt="Shirt Design 1" class="w-full h-64 object-cover" />
           </div>
-          <div onclick="openModal('assets/designs/shirt1.jpg')" class="cursor-pointer overflow-hidden rounded-xl shadow hover:shadow-lg transition">
+          <div onclick="openModal('assets/designs/5.jpeg')" class="cursor-pointer overflow-hidden rounded-xl shadow hover:shadow-lg transition">
             <img src="assets/designs/5.jpeg" alt="Shirt Design 1" class="w-full h-64 object-cover" />
           </div>
           <!-- Add more as needed -->
@@ -60,5 +60,28 @@
     <footer class="text-center text-sm text-gray-500 mt-10 p-4">
       &copy; 2025 Anjana's Design and Boutique. All rights reserved.
     </footer>
+    <div id="lightboxModal" class="fixed inset-0 z-50 hidden bg-black bg-opacity-80 flex items-center justify-center">
+        <div class="relative">
+          <span onclick="closeModal()" class="absolute -top-6 -right-6 text-white text-3xl cursor-pointer">×</span>
+          <img id="modalImage" src="" class="max-w-[90vw] max-h-[90vh] rounded shadow-lg" />
+        </div>
+      </div>
+      <script>
+        function openModal(src) {
+          document.getElementById("modalImage").src = src;
+          document.getElementById("lightboxModal").classList.remove("hidden");
+        }
+      
+        function closeModal() {
+          document.getElementById("lightboxModal").classList.add("hidden");
+        }
+      
+        // Close modal if clicked outside the image
+        document.getElementById("lightboxModal").addEventListener("click", function (e) {
+          if (e.target.id === "lightboxModal") {
+            closeModal();
+          }
+        });
+      </script>
   </body>
 </html>
