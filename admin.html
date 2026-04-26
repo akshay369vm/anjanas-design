@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anjana's Design - Admin Portal</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/admin.css">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧵</text></svg>">
+</head>
+<body>
+    <!-- AUTH SCREEN -->
+    <div id="authScreen" class="auth-screen">
+        <div class="auth-card">
+            <div class="auth-header">
+                <h1>Anjana's Design</h1>
+                <p>Admin Portal</p>
+            </div>
+            <form id="loginForm" class="auth-form">
+                <div class="form-group">
+                    <label>Email Address</label>
+                    <input type="email" id="loginEmail" required placeholder="admin@example.com">
+                </div>
+                <div class="form-group">
+                    <label>Password</label>
+                    <div style="position: relative;">
+                        <input type="password" id="loginPassword" required placeholder="••••••••" style="width: 100%; padding-right: 40px;">
+                        <button type="button" id="togglePassword" style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); background: none; border: none; cursor: pointer; font-size: 1.2rem; padding: 0;">👁️</button>
+                    </div>
+                    <div style="text-align: right; margin-top: 5px;">
+                        <button type="button" id="forgotPasswordBtn" class="link-btn" style="background: none; border: none; color: var(--primary); cursor: pointer; font-size: 0.85rem; padding: 0;">Forgot Password?</button>
+                    </div>
+                </div>
+                <button type="submit" class="auth-btn">Sign In</button>
+            </form>
+
+            <p id="authError" class="auth-error"></p>
+        </div>
+    </div>
+
+    <!-- DASHBOARD -->
+    <div id="dashboardScreen" class="dashboard" style="display:none;">
+        <aside class="sidebar">
+            <div class="sidebar-logo"><h2>Anjana's Design</h2><span>Admin Portal</span></div>
+            <nav class="sidebar-nav">
+                <a href="#" class="nav-item active" data-section="dashboard"><span class="nav-icon">📊</span> Dashboard</a>
+                <a href="#" class="nav-item" data-section="products"><span class="nav-icon">📦</span> Products</a>
+                <a href="#" class="nav-item" data-section="orders"><span class="nav-icon">🛒</span> Orders</a>
+            </nav>
+            <div class="sidebar-footer"><button id="logoutBtn" class="logout-btn">🚪 Logout</button></div>
+        </aside>
+        <main class="main-content">
+            <header class="top-bar">
+                <button class="mobile-menu-btn" id="mobileMenuBtn">☰</button>
+                <h1 id="pageTitle">Dashboard</h1>
+                <div class="user-info"><span id="userEmail"></span></div>
+            </header>
+            <!-- Dashboard -->
+            <section id="sec-dashboard" class="content-section active">
+                <div class="stats-grid">
+                    <div class="stat-card stat-products"><div class="stat-icon">📦</div><div class="stat-info"><h3 id="statProducts">0</h3><p>Total Products</p></div></div>
+                    <div class="stat-card stat-orders"><div class="stat-icon">🛒</div><div class="stat-info"><h3 id="statOrders">0</h3><p>Total Orders</p></div></div>
+                    <div class="stat-card stat-revenue"><div class="stat-icon">💰</div><div class="stat-info"><h3 id="statRevenue">₹0</h3><p>Revenue</p></div></div>
+                    <div class="stat-card stat-lowstock"><div class="stat-icon">⚠️</div><div class="stat-info"><h3 id="statLowStock">0</h3><p>Low Stock</p></div></div>
+                </div>
+                <div class="dashboard-grid">
+                    <div class="card"><h2>Recent Orders</h2><div id="recentOrders"><p class="empty-msg">No orders yet</p></div></div>
+                    <div class="card"><h2>Low Stock Alerts</h2><div id="lowStockAlerts"><p class="empty-msg">All items in stock</p></div></div>
+                </div>
+            </section>
+            <!-- Products -->
+            <section id="sec-products" class="content-section">
+                <div class="section-toolbar">
+                    <input type="text" id="productSearch" placeholder="Search products..." class="search-input">
+                    <button id="addProductBtn" class="primary-btn">+ Add Product</button>
+                </div>
+                <div class="card"><div class="table-wrapper">
+                    <table><thead><tr><th>Image</th><th>Name</th><th>Category</th><th>Price</th><th>Stock</th><th>Actions</th></tr></thead>
+                    <tbody id="productTableBody"><tr><td colspan="6" class="loading-cell">Loading...</td></tr></tbody></table>
+                </div></div>
+            </section>
+            <!-- Orders -->
+            <section id="sec-orders" class="content-section">
+                <div class="section-toolbar">
+                    <input type="text" id="orderSearch" placeholder="Search orders..." class="search-input">
+                    <button id="addOrderBtn" class="primary-btn">+ Log Order</button>
+                </div>
+                <div class="card"><div class="table-wrapper">
+                    <table><thead><tr><th>Order #</th><th>Customer</th><th>Items</th><th>Total</th><th>Status</th><th>Date</th><th>Actions</th></tr></thead>
+                    <tbody id="orderTableBody"><tr><td colspan="7" class="loading-cell">Loading...</td></tr></tbody></table>
+                </div></div>
+            </section>
+        </main>
+    </div>
+
+    <!-- PRODUCT MODAL -->
+    <div id="productModal" class="modal-overlay">
+        <div class="modal">
+            <div class="modal-header"><h2 id="productModalTitle">Add New Product</h2><button class="modal-close" data-modal="productModal">✕</button></div>
+            <form id="productForm">
+                <div class="form-group"><label>Product Name</label><input type="text" id="pName" required placeholder="e.g. Silk Evening Dress"></div>
+                <div class="form-group"><label>Product Image</label>
+                    <div class="file-upload-area"><input type="file" id="pImageFile" accept="image/*" required><p>📷 Click or drag image here</p><img id="imagePreview" class="img-preview" style="display:none;"></div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group"><label>Category</label><select id="pCategory" required>
+                        <option value="vishu">Vishu Collection</option>
+                        <option value="onam">Onam Collection</option>
+                        <option value="budget-love">Budget Love</option>
+                        <option value="luxury-love">Luxury Love</option>
+                    </select></div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group"><label>Selling Price (₹)</label><input type="number" id="pPrice" required placeholder="e.g. 1999"></div>
+                    <div class="form-group"><label>Original Price (₹)</label><input type="number" id="pOriginal" placeholder="Optional"></div>
+                </div>
+                <div class="form-group">
+                    <label>Inventory (Stock by Size)</label>
+                    <div id="sizeStockGrid" class="size-stock-grid" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; background: #f8f9fa; padding: 15px; border-radius: 8px; border: 1px solid #eee;">
+                        <div class="size-input-group"><label style="font-size: 0.8rem; color: #666;">XS</label><input type="number" class="size-stock-input" data-size="XS" value="0" min="0" style="width: 100%; padding: 5px; border: 1px solid #ddd; border-radius: 4px;"></div>
+                        <div class="size-input-group"><label style="font-size: 0.8rem; color: #666;">S</label><input type="number" class="size-stock-input" data-size="S" value="0" min="0" style="width: 100%; padding: 5px; border: 1px solid #ddd; border-radius: 4px;"></div>
+                        <div class="size-input-group"><label style="font-size: 0.8rem; color: #666;">M</label><input type="number" class="size-stock-input" data-size="M" value="0" min="0" style="width: 100%; padding: 5px; border: 1px solid #ddd; border-radius: 4px;"></div>
+                        <div class="size-input-group"><label style="font-size: 0.8rem; color: #666;">L</label><input type="number" class="size-stock-input" data-size="L" value="0" min="0" style="width: 100%; padding: 5px; border: 1px solid #ddd; border-radius: 4px;"></div>
+                        <div class="size-input-group"><label style="font-size: 0.8rem; color: #666;">XL</label><input type="number" class="size-stock-input" data-size="XL" value="0" min="0" style="width: 100%; padding: 5px; border: 1px solid #ddd; border-radius: 4px;"></div>
+                        <div class="size-input-group"><label style="font-size: 0.8rem; color: #666;">XXL</label><input type="number" class="size-stock-input" data-size="XXL" value="0" min="0" style="width: 100%; padding: 5px; border: 1px solid #ddd; border-radius: 4px;"></div>
+                    </div>
+                    <p style="font-size: 0.75rem; color: #888; margin-top: 5px;">Set quantity to 0 if a size is not available.</p>
+                </div>
+                <input type="hidden" id="editProductId"><input type="hidden" id="existingImageUrl">
+                <button type="submit" id="productSubmitBtn" class="primary-btn full-width">Add Product</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- ORDER MODAL -->
+    <div id="orderModal" class="modal-overlay">
+        <div class="modal">
+            <div class="modal-header"><h2 id="orderModalTitle">Log New Order</h2><button class="modal-close" data-modal="orderModal">✕</button></div>
+            <form id="orderForm">
+                <div class="form-row">
+                    <div class="form-group"><label>Customer Name</label><input type="text" id="oCustomer" required placeholder="Customer name"></div>
+                    <div class="form-group"><label>Phone Number</label><input type="tel" id="oPhone" required placeholder="+91 98765 43210"></div>
+                </div>
+                <div class="form-group"><label>Items Ordered</label><textarea id="oItems" required placeholder="e.g. 1x Silk Evening Dress (L), 2x Linen Top (M)" rows="3"></textarea></div>
+                <div class="form-row">
+                    <div class="form-group"><label>Total Amount (₹)</label><input type="number" id="oTotal" required placeholder="e.g. 4999"></div>
+                    <div class="form-group"><label>Status</label><select id="oStatus"><option value="pending">Pending</option><option value="confirmed">Confirmed</option><option value="shipped">Shipped</option><option value="delivered">Delivered</option><option value="cancelled">Cancelled</option></select></div>
+                </div>
+                <div class="form-group"><label>Notes</label><textarea id="oNotes" placeholder="Additional notes..." rows="2"></textarea></div>
+                <input type="hidden" id="editOrderId">
+                <button type="submit" id="orderSubmitBtn" class="primary-btn full-width">Log Order</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="toast" class="toast"></div>
+    <script type="module" src="js/admin.js"></script>
+</body>
+</html>

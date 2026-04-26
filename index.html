@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Pattambi Button House</title>
+    <title>Anjana's Design - Custom Tailoring & Boutique</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
       .fade { animation: fadeInOut 6s infinite; position: absolute; width: 100%; height: 100%; }
@@ -13,68 +13,124 @@
       }
     </style>
   </head>
-  <body class="bg-white text-gray-800 font-sans">
+  <body class="bg-gray-50 text-gray-800 font-sans">
 
     <!-- Header -->
-    <header class="bg-pink-200 shadow p-6 text-center">
-      <h1 class="text-4xl font-bold text-pink-900">Pattambi Button House</h1>
-      <p class="text-md text-pink-800 mt-2">Custom Tailoring & Print Work</p>
+    <header class="bg-white shadow-sm p-6 text-center sticky top-0 z-50">
+      <h1 class="text-4xl font-extrabold text-pink-600 tracking-tight">Anjana's Design</h1>
+      <p class="text-sm text-gray-500 mt-1 uppercase tracking-widest">Custom Tailoring & Print Work</p>
     </header>
 
-    <!-- Hero Section (Moving Images) -->
-    <section class="relative w-full h-[300px] sm:h-[400px] md:h-[500px] overflow-hidden">
-      <div id="slide1" class="fade"><img src="assets/hero/1.jpg" class="w-full h-full object-cover" /></div>
-      <div id="slide2" class="fade"><img src="assets/hero/2.jpg" class="w-full h-full object-cover" /></div>
-      <div id="slide3" class="fade"><img src="assets/hero/3.webp" class="w-full h-full object-cover" /></div>
-    </section>
-
-    <!-- Services Section -->
-    <section class="p-8 max-w-6xl mx-auto">
-      <h2 class="text-3xl font-bold text-center mb-10 text-pink-800">Our Services</h2>
-      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 text-center">
-        <!-- Button Fitting -->
-        <div class="border rounded-lg shadow hover:shadow-lg p-4">
-          <img src="assets/services/fitting.jpg" alt="Button Fitting" class="w-full h-48 object-cover rounded mb-4">
-          <h3 class="text-xl font-semibold text-pink-700 mb-2">Button Fitting</h3>
-          <p class="text-sm">Expert button stitching and re-fitting to ensure your outfits look sharp and secure.</p>
-        </div>
-        <!-- Custom Tailoring -->
-        <div class="border rounded-lg shadow hover:shadow-lg p-4">
-          <img src="assets/services/tailoring.jpg" alt="Custom Tailoring" class="w-full h-48 object-cover rounded mb-4">
-          <h3 class="text-xl font-semibold text-pink-700 mb-2">Customised Tailoring</h3>
-          <p class="text-sm">Made-to-measure tailoring services for shirts, kurtis, and designer pieces.</p>
-        </div>
-        <!-- Custom Printing -->
-        <div class="border rounded-lg shadow hover:shadow-lg p-4">
-          <img src="assets/services/printing.jpg" alt="Custom Printing" class="w-full h-48 object-cover rounded mb-4">
-          <h3 class="text-xl font-semibold text-pink-700 mb-2">Custom Printing</h3>
-          <p class="text-sm">Get creative prints on shirts, t-shirts, and kurtis that reflect your personal style.</p>
-        </div>
+    <!-- Hero Section (Slideshow) -->
+    <section class="relative w-full h-[400px] md:h-[600px] overflow-hidden bg-gray-200">
+      <div id="slide1" class="fade"><img src="assets/hero/1.jpg" class="w-full h-full object-cover" onerror="this.src='https://images.unsplash.com/photo-1537832816519-689ad163238b?auto=format&fit=crop&q=80&w=1200'"/></div>
+      <div id="slide2" class="fade" style="opacity:0"><img src="assets/hero/2.jpg" class="w-full h-full object-cover" onerror="this.src='https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&q=80&w=1200'"/></div>
+      <div id="slide3" class="fade" style="opacity:0"><img src="assets/hero/3.webp" class="w-full h-full object-cover" onerror="this.src='https://images.unsplash.com/photo-1445205170230-053b83016050?auto=format&fit=crop&q=80&w=1200'"/></div>
+      <div class="absolute inset-0 bg-black/20 flex items-center justify-center">
+          <div class="text-center text-white p-6 backdrop-blur-sm bg-black/10 rounded-2xl border border-white/20">
+              <h2 class="text-4xl md:text-6xl font-bold mb-4">Timeless Elegance</h2>
+              <p class="text-lg md:text-xl">Crafted with passion, designed for you.</p>
+              <a href="#collections" class="mt-8 inline-block bg-white text-pink-600 px-8 py-3 rounded-full font-bold hover:bg-pink-50 transition shadow-lg">Explore Collections</a>
+          </div>
       </div>
     </section>
 
-    <!-- Collection Buttons -->
-    <section class="p-6 max-w-4xl mx-auto text-center">
-      <h2 class="text-xl font-semibold mb-4">Choose a Collection</h2>
-      <div class="flex justify-center gap-4 flex-wrap">
-        <a href="vishu.html" class="bg-pink-500 hover:bg-pink-600 text-white px-4 py-2 rounded-xl transition">🌸 Vishu Collection</a>
-        <a href="onam.html" class="bg-yellow-500 hover:bg-yellow-600 text-white px-4 py-2 rounded-xl transition">🌼 Onam Collection</a>
+    <!-- Featured Collection -->
+    <section id="collections" class="p-12 max-w-7xl mx-auto">
+        <h2 class="text-3xl font-bold text-center mb-12 text-gray-900">Explore Collections</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-8">
+            <a href="vishu.html" class="group relative overflow-hidden rounded-3xl h-[300px] shadow-lg">
+                <img src="assets/vishu_thumb.jpg" class="w-full h-full object-cover group-hover:scale-110 transition duration-700" onerror="this.src='https://images.unsplash.com/photo-1581044777550-4cfa60707c03?auto=format&fit=crop&q=80&w=600'">
+                <div class="absolute inset-0 bg-gradient-to-t from-pink-900/80 to-transparent flex items-end p-8">
+                    <div>
+                        <h3 class="text-2xl font-bold text-white mb-2">🌸 Vishu Collection</h3>
+                        <p class="text-pink-100">Celebrate the traditional colors of spring.</p>
+                    </div>
+                </div>
+            </a>
+            <a href="onam.html" class="group relative overflow-hidden rounded-3xl h-[300px] shadow-lg">
+                <img src="assets/onam_thumb.jpg" class="w-full h-full object-cover group-hover:scale-110 transition duration-700" onerror="this.src='https://images.unsplash.com/photo-1605518216938-7c31b7b14ad0?auto=format&fit=crop&q=80&w=600'">
+                <div class="absolute inset-0 bg-gradient-to-t from-yellow-900/80 to-transparent flex items-end p-8">
+                    <div>
+                        <h3 class="text-2xl font-bold text-white mb-2">🌼 Onam Collection</h3>
+                        <p class="text-yellow-100">Festive attire for the homecoming of King Bali.</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="bg-white py-20 px-8">
+      <div class="max-w-6xl mx-auto">
+          <h2 class="text-3xl font-bold text-center mb-16 text-gray-900">Our Expertise</h2>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-12 text-center">
+            <div class="flex flex-col items-center">
+              <div class="w-20 h-20 bg-pink-100 rounded-2xl flex items-center justify-center mb-6 text-3xl">🪡</div>
+              <h3 class="text-xl font-bold mb-3">Custom Tailoring</h3>
+              <p class="text-gray-600 text-sm leading-relaxed">Perfectly fitted garments designed to match your unique style and body shape.</p>
+            </div>
+            <div class="flex flex-col items-center">
+              <div class="w-20 h-20 bg-yellow-100 rounded-2xl flex items-center justify-center mb-6 text-3xl">🎨</div>
+              <h3 class="text-xl font-bold mb-3">Custom Printing</h3>
+              <p class="text-gray-600 text-sm leading-relaxed">Bring your ideas to life with high-quality prints on your favorite fabrics.</p>
+            </div>
+            <div class="flex flex-col items-center">
+              <div class="w-20 h-20 bg-blue-100 rounded-2xl flex items-center justify-center mb-6 text-3xl">🔘</div>
+              <h3 class="text-xl font-bold mb-3">Button Fitting</h3>
+              <p class="text-gray-600 text-sm leading-relaxed">The finest details matter. We offer expert button work and embellishments.</p>
+            </div>
+          </div>
       </div>
     </section>
 
     <!-- Contact Section -->
-    <section class="bg-pink-100 p-6 mt-10">
-      <div class="max-w-3xl mx-auto text-center">
-        <h2 class="text-2xl font-bold mb-4">Contact Us</h2>
-        <p class="text-lg mb-2">📞 <a href="tel:+919778022978" class="text-blue-600 hover:underline">+91 97780 22978</a></p>
-        <p class="text-lg mb-2">✉️ <a href="mailto:anjana@example.com" class="text-blue-600 hover:underline">anjana@example.com</a></p>
-        <p class="text-lg">💬 <a href="https://wa.me/919778022978" class="text-green-600 hover:underline" target="_blank">+91 97780 22978</a></p>
+    <section class="bg-gray-900 text-white py-20 px-8">
+      <div class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+        <div>
+            <h2 class="text-4xl font-bold mb-6">Get in Touch</h2>
+            <p class="text-gray-400 mb-8 leading-relaxed">Visit us or contact us for custom orders and consultations. We're happy to help you create your dream outfit.</p>
+            <div class="space-y-4">
+                <div class="flex items-center gap-4">
+                    <span class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center text-pink-400">📞</span>
+                    <a href="tel:+919778022978" class="hover:text-pink-400 transition">+91 97780 22978</a>
+                </div>
+                <div class="flex items-center gap-4">
+                    <span class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center text-green-400">💬</span>
+                    <a href="https://wa.me/919778022978" class="hover:text-green-400 transition" target="_blank">Chat on WhatsApp</a>
+                </div>
+                <div class="flex items-center gap-4">
+                    <span class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center text-blue-400">✉️</span>
+                    <a href="mailto:anjana@example.com" class="hover:text-blue-400 transition">anjana@example.com</a>
+                </div>
+            </div>
+        </div>
+        <div class="bg-white/5 p-8 rounded-3xl border border-white/10">
+            <h3 class="text-xl font-bold mb-6">Store Location</h3>
+            <p class="text-gray-400 mb-4">Pattambi Button House</p>
+            <p class="text-gray-400">Pattambi, Palakkad</p>
+            <p class="text-gray-400">Kerala, India</p>
+            <div class="mt-8 h-64 w-full rounded-2xl overflow-hidden shadow-inner grayscale hover:grayscale-0 transition duration-500">
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15669.754779659483!2d76.1824497!3d10.8159938!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba7c6530666068d%3A0x6333c1f062d59074!2sPattambi%2C%20Kerala!5e0!3m2!1sen!2sin!4v1714146000000!5m2!1sen!2sin" 
+                    width="100%" 
+                    height="100%" 
+                    style="border:0;" 
+                    allowfullscreen="" 
+                    loading="lazy" 
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+            </div>
+        </div>
       </div>
     </section>
 
     <!-- Footer -->
-    <footer class="text-center text-sm text-gray-500 mt-10 p-4">
-      &copy; 2025 Pattambi Button House
+    <footer class="bg-black text-center text-gray-500 p-10">
+      <p class="text-sm">&copy; 2025 Anjana's Design Boutique. All rights reserved.</p>
+      <div class="mt-4 flex justify-center gap-4 text-xs">
+          <a href="admin.html" class="hover:text-pink-400 transition opacity-20">Admin Login</a>
+      </div>
     </footer>
 
     <!-- Slideshow Script -->
@@ -83,10 +139,11 @@
       const total = 3;
       setInterval(() => {
         for (let i = 1; i <= total; i++) {
-          document.getElementById("slide" + i).style.opacity = (i === current) ? "1" : "0";
+          const slide = document.getElementById("slide" + i);
+          if (slide) slide.style.opacity = (i === current) ? "1" : "0";
         }
         current = current < total ? current + 1 : 1;
-      }, 4000);
+      }, 5000);
     </script>
   </body>
 </html>
